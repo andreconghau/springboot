@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
-@Scope("prototype")
+// @Scope("prototype")
 public class AppleIphone11 {
     public AppleInterface appleInterface;
 
