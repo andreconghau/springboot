@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
-@SpringBootApplication
+@SpringBootApplication()
 public class StudyApplication {
 
     public static void main(String[] args) {
@@ -17,6 +17,11 @@ public class StudyApplication {
         AppleInterface testCallFromInterface = context.getBean(AppleInterface.class);
         System.out.println("Instance: " + testCallFromInterface);
         testCallFromInterface.openFaceId();
+
+        AppleIphone11 appleIphone11 = context.getBean(AppleIphone11.class);
+        System.out.println("Instance: " + appleIphone11.appleInterface);
+        appleIphone11.appleInterface.openFaceId();
+
     }
 
 }
