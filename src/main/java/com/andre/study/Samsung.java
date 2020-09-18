@@ -3,7 +3,7 @@ package com.andre.study;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
-@Component
+@Component("sam-sung")
 @Primary
 public class Samsung  implements ChargeDevice{
     @Override

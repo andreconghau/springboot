@@ -3,7 +3,7 @@ package com.andre.study;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
-@Component
+@Component("trai-tao")
 // @Primary
 public class Apple implements AppleInterface, ChargeDevice {
     public void makeIphone() {

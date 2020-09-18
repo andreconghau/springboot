@@ -35,6 +35,11 @@ public class StudyApplication {
         System.out.println("Instance Charge Device: " + testChargeDevice);
         testChargeDevice.ChargePort();
 
+        // TODO Case Has @Autowired + @Qualifier
+        AppleIphone11 appleIphone12 = context.getBean(AppleIphone11.class);
+        System.out.println("Instance 12 New Charge Port: " + appleIphone12.chargeDevice);
+        appleIphone12.chargeDevice.ChargePort();
+
 
     }
 
