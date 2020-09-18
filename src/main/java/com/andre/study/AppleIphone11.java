@@ -1,10 +1,14 @@
 package com.andre.study;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class AppleIphone11 {
     public AppleInterface appleInterface;
+
+    @Autowired
+    public AppleInterface appleWire;
 
     public AppleIphone11() {
         this.appleInterface = new Apple();
@@ -16,5 +20,13 @@ public class AppleIphone11 {
 
     public void setAppleInterface(AppleInterface appleInterface) {
         this.appleInterface = appleInterface;
+    }
+
+    public AppleInterface getAppleWire() {
+        return appleWire;
+    }
+
+    public void setAppleWire(AppleInterface appleWire) {
+        this.appleWire = appleWire;
     }
 }

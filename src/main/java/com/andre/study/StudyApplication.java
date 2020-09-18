@@ -19,8 +19,12 @@ public class StudyApplication {
         testCallFromInterface.openFaceId();
 
         AppleIphone11 appleIphone11 = context.getBean(AppleIphone11.class);
-        System.out.println("Instance: " + appleIphone11.appleInterface);
+        System.out.println("Instance: 11 " + appleIphone11.appleInterface);
         appleIphone11.appleInterface.openFaceId();
+
+        AppleIphone11 appleIphone11ProMax = context.getBean(AppleIphone11.class);
+        System.out.println("Instance 11 ProMax: " + appleIphone11ProMax.appleInterface);
+        appleIphone11ProMax.appleInterface.openFaceId();
 
     }
 
