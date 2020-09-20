@@ -1,6 +1,8 @@
 package com.andre.study.service;
 
 import com.andre.study.enitty.User;
+import com.andre.study.model.dto.UserDto;
+import com.andre.study.model.mapper.UserMapper;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -22,6 +24,16 @@ public class UserServiceImp implements UserService {
     @Override
     public List<User> getListUser() {
         return userList;
+    }
+
+    // TODO Thong qua Mapper va Dto de wrapper data tra ve.
+    @Override
+    public List<UserDto> getListUserDto() {
+        List<UserDto> listUserDto = new ArrayList<UserDto>();
+        for (User user :  userList) {
+            listUserDto.add(UserMapper.convertUserDto(user));
+        }
+        return listUserDto;
     }
 
 

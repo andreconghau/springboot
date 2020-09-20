@@ -1,6 +1,7 @@
 package com.andre.study.controller;
 
 import com.andre.study.enitty.User;
+import com.andre.study.model.dto.UserDto;
 import com.andre.study.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,7 +23,12 @@ public class ApiUserController {
     // TODO GET:api/users
     @GetMapping(value = {"/users"})
     public ResponseEntity<?> getUsers() {
-        List<User> userList = userService.getListUser();
+        // TODO using get all fields.
+        // List<User> userList = userService.getListUser();
+
+        // TODO using get limit fields by DTO => without password field.
+        List<UserDto> userList = userService.getListUserDto();
+
         return ResponseEntity.status(HttpStatus.OK).body(userList);
     }
 
