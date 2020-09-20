@@ -14,11 +14,11 @@ public class UserServiceImp implements UserService {
     private static ArrayList<User> userList = new ArrayList<User>();
 
     static {
-        userList.add(new User(1,"andre", "andre@abc.net", "123456"));
-        userList.add(new User(2,"nelson", "nelson@abc.net", "xyzzyx"));
-        userList.add(new User(3,"jason", "jason@abc.net", "123123"));
-        userList.add(new User(4,"thomas", "thomas@abc.net", "thomasABC"));
-        userList.add(new User(5,"mathew", "mathew@abc.net", "mathewYYY"));
+        userList.add(new User(1,"andre", "andre@abc.net", "admin","123456"));
+        userList.add(new User(2,"nelson", "nelson@abc.net", "admin", "xyzzyx"));
+        userList.add(new User(3,"jason", "jason@abc.net", "user", "123123"));
+        userList.add(new User(4,"thomas", "thomas@abc.net", "user", "thomasABC"));
+        userList.add(new User(5,"mathew", "mathew@abc.net", "user", "mathewYYY"));
     };
 
     @Override
@@ -42,6 +42,20 @@ public class UserServiceImp implements UserService {
         List<UserDto> listUserDto = new ArrayList<UserDto>();
         for (User user :  userList) {
             if (user.getId() == id) {
+                listUserDto.add(UserMapper.convertUserDto(user));
+            }
+        }
+        return listUserDto;
+    }
+
+    @Override
+    public List<UserDto> getFilterUser(String role) {
+        System.out.println("Filter params: " + role);
+        List<UserDto> listUserDto = new ArrayList<UserDto>();
+        for (User user :  userList) {
+            System.out.println(user.getName() + " " +user.getRole());
+            if (role.equals(user.getRole())) {
+                System.out.println(user.getName() + " " +user.getRole());
                 listUserDto.add(UserMapper.convertUserDto(user));
             }
         }

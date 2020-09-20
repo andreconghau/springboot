@@ -9,6 +9,7 @@ public class UserMapper {
         tmpUser.setId(user.getId());
         tmpUser.setName(user.getName());
         tmpUser.setEmail(user.getEmail());
+        tmpUser.setRole(user.getRole());
         System.out.println(tmpUser);
         return tmpUser;
     }

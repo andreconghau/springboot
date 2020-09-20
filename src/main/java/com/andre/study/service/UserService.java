@@ -11,4 +11,5 @@ public interface UserService {
     public List<User> getListUser();
     public List<UserDto> getListUserDto();
     public List<UserDto> getListUserDtoById(int id);
+    public List<UserDto> getFilterUser(String role);
 }
