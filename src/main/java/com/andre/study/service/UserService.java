@@ -10,4 +10,5 @@ import java.util.List;
 public interface UserService {
     public List<User> getListUser();
     public List<UserDto> getListUserDto();
+    public List<UserDto> getListUserDtoById(int id);
 }
