@@ -1,6 +1,7 @@
 package com.andre.study.service;
 
 import com.andre.study.enitty.User;
+import com.andre.study.exception.NotFoundException;
 import com.andre.study.model.dto.UserDto;
 import com.andre.study.model.mapper.UserMapper;
 import org.springframework.stereotype.Component;
@@ -37,15 +38,15 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
-    public List<UserDto> getListUserDtoById(int id) {
+    public UserDto getListUserDtoById(int id) {
         System.out.println(id);
-        List<UserDto> listUserDto = new ArrayList<UserDto>();
+        UserDto userDto = new UserDto();
         for (User user :  userList) {
             if (user.getId() == id) {
-                listUserDto.add(UserMapper.convertUserDto(user));
+                return UserMapper.convertUserDto(user);
             }
         }
-        return listUserDto;
+        throw new NotFoundException("User đéo tồn tại nhé!");
     }
 
     @Override

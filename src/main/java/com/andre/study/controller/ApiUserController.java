@@ -33,7 +33,7 @@ public class ApiUserController {
     // TODO GET: api""/user/{id}
     @GetMapping("/user/{id}")
     public ResponseEntity<?> getUserById(@PathVariable int id) {
-        List<UserDto> userDetail = userService.getListUserDtoById(id);
+        UserDto userDetail = userService.getListUserDtoById(id);
         return ResponseEntity.status(HttpStatus.OK).body(userDetail);
     }
 
