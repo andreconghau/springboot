@@ -39,13 +39,20 @@ public class ApiUserController {
 
     // TODO GET: api""/users/filter?role=admin || user
     @GetMapping("/user/filter")
-    public ResponseEntity<?> getFilterUser(@RequestParam String role) {
-        List<UserDto> userDetail = userService.getFilterUser(role);
+    public ResponseEntity<?> getFilterUser(@RequestParam(name="role") String roleString) {
+        List<UserDto> userDetail = userService.getFilterUser(roleString);
         return ResponseEntity.status(HttpStatus.OK).body(userDetail);
     }
 
 
     // TODO POST: api/user/create
+    @PostMapping("/user/create")
+    public ResponseEntity<?> getFilterUser(@RequestParam int id, @RequestParam String name) {
+        List<UserDto> userDetail = userService.createUser(id, name);
+        return ResponseEntity.status(HttpStatus.OK).body(userDetail);
+    }
+
+
     // TODO PUT: apo/user/{id}/edit
     // TODO DELETE: api/user/{id}
 }

@@ -12,4 +12,5 @@ public interface UserService {
     public List<UserDto> getListUserDto();
     public List<UserDto> getListUserDtoById(int id);
     public List<UserDto> getFilterUser(String role);
+    public List<UserDto> createUser(int id, String name);
 }

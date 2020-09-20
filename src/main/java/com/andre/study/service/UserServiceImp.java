@@ -62,5 +62,24 @@ public class UserServiceImp implements UserService {
         return listUserDto;
     }
 
+    @Override
+    public List<UserDto> createUser(int id, String name) {
+        List<UserDto> listUserDto = new ArrayList<UserDto>();
+        System.out.println("Post params: " + id + " " + name);
+        for (User user :  userList) {
+            if (user.getId() == id) {
+                return null;
+            }
+        }
+        userList.add(new User(id,name, name+".net", "users","123456"));
+
+        for (User user :  userList) {
+            if (user.getId() == id) {
+                listUserDto.add(UserMapper.convertUserDto(user));
+            }
+        }
+        return listUserDto;
+    }
+
 
 }
