@@ -39,7 +39,7 @@ public class ApiUserController {
 
     // TODO GET: api""/users/filter?role=admin || user
     @GetMapping("/user/filter")
-    public ResponseEntity<?> getFilterUser(@RequestParam(name="role") String roleString) {
+    public ResponseEntity<?> getFilterUser(@RequestParam(name="role", required = false) String roleString) {
         List<UserDto> userDetail = userService.getFilterUser(roleString);
         return ResponseEntity.status(HttpStatus.OK).body(userDetail);
     }
