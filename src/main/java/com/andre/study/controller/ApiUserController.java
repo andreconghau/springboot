@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.andre.study.model.request.CreateUserReg;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -54,7 +55,7 @@ public class ApiUserController {
 
     // TODO POST: api/user/new by Json Body
     @PostMapping("/user/new")
-    public ResponseEntity<?> postUserNew(@RequestBody CreateUserReg req) {
+    public ResponseEntity<?> postUserNew(@Valid @RequestBody CreateUserReg req) {
         UserDto userCreated = userService.createUserRequest(req);
         return ResponseEntity.status(HttpStatus.OK).body(userCreated);
     }
