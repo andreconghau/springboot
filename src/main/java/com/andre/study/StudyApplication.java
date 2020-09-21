@@ -40,6 +40,16 @@ public class StudyApplication {
         System.out.println("Instance 12 New Charge Port: " + appleIphone12.chargeDevice);
         appleIphone12.chargeDevice.ChargePort();
 
+        // TODO @bean between Desktop && DesktopDell
+        Desktop desktop = (Desktop) context.getBean("desktop");
+        System.out.println(desktop);
+        System.out.println(desktop.getRam_slot());
+        System.out.println("--------------------------------------");
+        DesktopDell desktopDellP110 = (DesktopDell) context.getBean("desktopDell");
+        System.out.println(desktopDellP110);
+        System.out.println(desktopDellP110.desktop);
+        System.out.println(desktopDellP110.desktop.getRam_slot());
+
 
     }
 
