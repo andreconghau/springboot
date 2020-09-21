@@ -2,6 +2,9 @@ package com.andre.study.controller;
 
 import com.andre.study.model.dto.UserDto;
 import com.andre.study.service.UserService;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +23,10 @@ public class ApiUserController {
 
 
     // TODO GET:api/users
+    @ApiOperation(value = "Get list user", response = UserDto.class, responseContainer = "List")
+    @ApiResponses({
+            @ApiResponse(code=500,message = "")
+    })
     @GetMapping(value = {"/users"})
     public ResponseEntity<?> getUsers() {
         // TODO using get all fields.
