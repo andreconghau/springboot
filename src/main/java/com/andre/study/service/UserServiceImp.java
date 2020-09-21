@@ -4,6 +4,8 @@ import com.andre.study.enitty.User;
 import com.andre.study.exception.NotFoundException;
 import com.andre.study.model.dto.UserDto;
 import com.andre.study.model.mapper.UserMapper;
+import com.andre.study.model.request.CreateUserReg;
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -80,6 +82,21 @@ public class UserServiceImp implements UserService {
             }
         }
         return listUserDto;
+    }
+
+    @Override
+    public UserDto createUserRequest(CreateUserReg req) {
+        User user = new User();
+        user.setId(userList.size() + 1);
+        user.setRole("user");
+        user.setName(req.getName());
+        user.setEmail(req.getEmail());
+        user.setPassword(BCrypt.hashpw(req.getPassword(), BCrypt.gensalt()));
+
+        System.out.println("Password encrypt: " + req.getPassword() + " -- " + user.getPassword());
+
+        userList.add(user);
+        return UserMapper.convertUserDto(user);
     }
 
 

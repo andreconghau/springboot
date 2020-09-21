@@ -1,12 +1,12 @@
 package com.andre.study.controller;
 
-import com.andre.study.enitty.User;
 import com.andre.study.model.dto.UserDto;
 import com.andre.study.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import com.andre.study.model.request.CreateUserReg;
 
 import java.util.List;
 
@@ -45,11 +45,18 @@ public class ApiUserController {
     }
 
 
-    // TODO POST: api/user/create
+    // TODO POST: api/user/create by FORM Part params
     @PostMapping("/user/create")
-    public ResponseEntity<?> getFilterUser(@RequestParam int id, @RequestParam String name) {
+    public ResponseEntity<?> postUserCreate(@RequestParam int id, @RequestParam String name) {
         List<UserDto> userDetail = userService.createUser(id, name);
         return ResponseEntity.status(HttpStatus.OK).body(userDetail);
+    }
+
+    // TODO POST: api/user/new by Json Body
+    @PostMapping("/user/new")
+    public ResponseEntity<?> postUserNew(@RequestBody CreateUserReg req) {
+        UserDto userCreated = userService.createUserRequest(req);
+        return ResponseEntity.status(HttpStatus.OK).body(userCreated);
     }
 
 

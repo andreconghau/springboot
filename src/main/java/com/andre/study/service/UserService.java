@@ -2,6 +2,7 @@ package com.andre.study.service;
 
 import com.andre.study.enitty.User;
 import com.andre.study.model.dto.UserDto;
+import com.andre.study.model.request.CreateUserReg;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,4 +14,5 @@ public interface UserService {
     public UserDto getListUserDtoById(int id);
     public List<UserDto> getFilterUser(String role);
     public List<UserDto> createUser(int id, String name);
+    public UserDto createUserRequest(CreateUserReg req);
 }
