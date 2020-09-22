@@ -27,7 +27,7 @@ public class Swagger2Config {
                 .description("REVU Elasticsearch Influencer/USER Search Apis")
                 .license("All Rights Reserved Andre Corp. Licence")
                 .licenseUrl("http://andre.net")
-                .version("v1")
+                .version("1.0.0")
                 .build();
     }
 
