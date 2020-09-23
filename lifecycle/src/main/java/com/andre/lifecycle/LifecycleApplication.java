@@ -1,6 +1,7 @@
 package com.andre.lifecycle;
 
 import com.andre.lifecycle.component.BeanCycle;
+import com.andre.lifecycle.connector.DatabaseConnector;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -22,6 +23,13 @@ public class LifecycleApplication {
         System.out.println("> Trước khi IoC Container destroy BeanCycle");
         ((ConfigurableApplicationContext) context).getBeanFactory().destroyBean(beanCycle);
         System.out.println("> Sau khi IoC Container destroy BeanCycle");
+
+        // TODO @Bean Connector
+        DatabaseConnector mysql = (DatabaseConnector) context.getBean("mysqlConnector");
+        mysql.connect();
+
+        DatabaseConnector mongodb = (DatabaseConnector) context.getBean("mongodbConnector");
+        mongodb.connect();
 
     }
 
