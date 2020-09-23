@@ -3,16 +3,20 @@ package com.andre.lifecycle.config;
 import com.andre.lifecycle.connector.DatabaseConnector;
 import com.andre.lifecycle.connector.MongoDbConnector;
 import com.andre.lifecycle.connector.MySqlConnector;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class DatabaseConfig {
 
+    @Value("${spring.datasource.url}")
+    String mysqlUrl;
+
     @Bean("mysqlConnector")
     DatabaseConnector mysqlConfigure() {
         DatabaseConnector mySqlConnector = new MySqlConnector();
-        mySqlConnector.setUrl("jdbc:mysql://host1:33060/");
+        mySqlConnector.setUrl(mysqlUrl);
         // Set username, password, format, v.v...
         return mySqlConnector;
     }
