@@ -2,10 +2,14 @@ package com.andre.lifecycle;
 
 import com.andre.lifecycle.component.BeanCycle;
 import com.andre.lifecycle.connector.DatabaseConnector;
+import com.andre.lifecycle.model.User;
+import com.andre.lifecycle.service.UserJdbcTemplate;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
+
+import java.util.List;
 
 @SpringBootApplication
 public class LifecycleApplication {
@@ -30,6 +34,10 @@ public class LifecycleApplication {
 
         DatabaseConnector mongodb = (DatabaseConnector) context.getBean("mongodbConnector");
         mongodb.connect();
+
+        // Todo test JDBC template
+        UserJdbcTemplate userJdbcTemplate = context.getBean(UserJdbcTemplate.class);
+        userJdbcTemplate.findAllUser();
 
     }
 
